@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 7%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 7%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 7%;
+
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 100% 45%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 35%;
+
+    --accent: 46 65% 52%;
+    --accent-foreground: 0 0% 7%;
+
+    --destructive: 0 100% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 0%;
+
+    --neutral: 0 0% 65%;
+    --brand-red: 0 100% 45%;
+    --brand-gold: 46 65% 52%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 0% / 0.45) 0%, hsl(0 0% 0% / 0.25) 55%, hsl(0 100% 25% / 0.30) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(46 65% 52%), hsl(46 75% 65%));
+    --gradient-red: linear-gradient(135deg, hsl(0 100% 45%), hsl(0 100% 35%));
+
+    --shadow-elegant: 0 20px 60px -20px hsl(0 0% 0% / 0.25);
+    --shadow-card: 0 4px 24px -6px hsl(0 0% 0% / 0.08);
+
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Lora', Georgia, 'Times New Roman', serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+  }
+}
+
+@layer utilities {
+  .container-pro { @apply max-w-7xl mx-auto px-6 md:px-10; }
+  .text-balance { text-wrap: balance; }
+  .font-display { font-family: 'Playfair Display', Georgia, serif; }
+  .font-serif-body { font-family: 'Lora', Georgia, serif; }
+
+  .fade-in { animation: fadeIn 0.9s ease-out both; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-slide { animation: zoomSlow 12s ease-in-out infinite alternate; }
+  @keyframes zoomSlow {
+    from { transform: scale(1); }
+    to { transform: scale(1.08); }
+  }
+
+  /* Reveal-on-scroll */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
+
+  /* Floating */
+  .float-slow { animation: floatSlow 6s ease-in-out infinite; }
+  @keyframes floatSlow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* Underline grow */
+  .link-underline { position: relative; }
+  .link-underline::after {
+    content: ""; position: absolute; left: 0; bottom: -4px;
+    height: 2px; width: 0; background: hsl(var(--brand-red));
+    transition: width 0.35s ease;
+  }
+  .link-underline:hover::after { width: 100%; }
+
+  /* Card lift */
+  .lift { transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.4s ease, border-color 0.3s ease; }
+  .lift:hover { transform: translateY(-6px); box-shadow: 0 24px 40px -22px hsl(0 0% 0% / 0.25); }
+
+  /* Shine */
+  .shine { position: relative; overflow: hidden; }
+  .shine::before {
+    content: ""; position: absolute; top: 0; left: -75%; width: 50%; height: 100%;
+    background: linear-gradient(120deg, transparent, hsl(0 0% 100% / 0.25), transparent);
+    transform: skewX(-20deg);
+  }
+  .shine:hover::before { animation: shine 0.9s ease forwards; }
+  @keyframes shine { to { left: 125%; } }
+}
