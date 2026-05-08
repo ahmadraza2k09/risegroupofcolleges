@@ -16,7 +16,7 @@ import imgCA from "@/assets/events/ca-orientation.png";
 import imgBSCS from "@/assets/events/bscs-orientation.png";
 import imgLibrary from "@/assets/events/library.png";
 import imgPTM from "@/assets/events/parents-teacher-meeting.png";
-import imgFamily from "@/assets/events/rise-family.png";
+import imgFamily from "@/assets/events/rise-family.jpeg";
 import imgSafety from "@/assets/events/safety-awareness.png";
 import imgIslamic from "@/assets/events/islamic-banking.png";
 import imgMurree from "@/assets/events/trip-murree.png";
@@ -62,17 +62,23 @@ const FEATURES = [
 ];
 
 const FACULTY = [
-  { name: "Mr Aamir Sajjad Chawan", role: "Director" },
-  { name: "Mr Shahid Noor", role: "Registrar" },
-  { name: "Mr Fayyaz", role: "Lecturer Economics and Business" },
-  { name: "Mr Roshan Shah Khagga", role: "Admission Officer" },
-  { name: "Mr Zahid Noor", role: "Accountant" },
-  { name: "Mr Shahzaib Shah", role: "Accountant" },
-  { name: "Mr Amjad Bajwa", role: "Director Marketing" },
-  { name: "Mr Akram", role: "Admin" },
-  { name: "Mr Waqas", role: "Examination Department" },
-  { name: "Mr Javed", role: "L A" },
-  { name: "Mr Wasim Akram", role: "Faculty Member" },
+  { name: "Sher Afgan Khan", role: "Principal" },
+  { name: "Muhammad Yousaf", role: "Principal A.C" },
+  { name: "Waseem Akram", role: "V.Principal" },
+  { name: "Aziz ur Rehman", role: "Chemistry" },
+  { name: "Ghulam Murtaza", role: "English" },
+  { name: "Muhammad Suleman Ahmad", role: "Physics" },
+  { name: "Muhammad Yasir Khan", role: "Math" },
+  { name: "Shakeel Ahmad", role: "Urdu" },
+  { name: "Muhammad Fayyaz", role: "Economics" },
+  { name: "Saif Ur Rehman Sb", role: "Chemistry" },
+  { name: "Waseem Ullah Khan", role: "Bio" },
+  { name: "Faisal Aslam", role: "Physics" },
+  { name: "Sajida Shehnaz", role: "Economics" },
+  { name: "Wajahat Ali", role: "MLT" },
+  { name: "Asim Altaf", role: "English" },
+  { name: "Ghulam Abbas", role: "English" },
+  { name: "Hafiz Shakeel Ahmad", role: "Islamiyat" },
 ];
 
 const NAV = [
@@ -176,7 +182,7 @@ const Index = () => {
         {HERO_IMAGES.map((src, i) => (
           <div
             key={i}
-            className={`absolute inset-0 transition-opacity duration-[1500ms] ${i === slide ? "opacity-100" : "opacity-0"}`}
+            className={`absolute inset-0 transition-opacity duration-&lsqb;1500ms&rsqb; ${i === slide ? "opacity-100" : "opacity-0"}`}
           >
             <img src={src} alt="" className="w-full h-full object-cover hero-slide" />
           </div>
@@ -233,10 +239,6 @@ const Index = () => {
           <div className="relative reveal">
             <div className="aspect-[4/5] overflow-hidden rounded-sm shadow-[var(--shadow-elegant)] bg-white flex items-center justify-center p-10">
               <img src={aboutLogo} alt="Rise Group of Colleges Multan logo" className="w-full h-full object-contain float-slow" />
-            </div>
-            <div className="absolute -bottom-6 -left-6 bg-primary text-primary-foreground p-6 max-w-[220px] hidden md:block shadow-[var(--shadow-elegant)]">
-              <div className="text-gold text-xs uppercase tracking-widest mb-2">Our Mission</div>
-              <div className="text-sm leading-relaxed">Education With Values for a brighter tomorrow.</div>
             </div>
           </div>
         </div>
@@ -524,7 +526,7 @@ const CampusCard = ({ title, phones, address }: { title: string; phones: string[
   </Card>
 );
 
-const ContactItem = ({ icon: Icon, title, children }: { icon: any; title: string; children: React.ReactNode }) => (
+const ContactItem = ({ icon: Icon, title, children }: { icon: React.ComponentType<React.SVGProps<SVGSVGElement>>; title: string; children: React.ReactNode }) => (
   <div>
     <div className="flex items-center gap-3 mb-4">
       <div className="h-10 w-10 border border-white/30 flex items-center justify-center"><Icon className="h-4 w-4 text-gold" /></div>
